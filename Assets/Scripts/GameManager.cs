@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] GameObject enemyPreFab;
     [SerializeField] UIManager uIManager;
+    [SerializeField] GameObject gameOverScreen;
     private float spawnInterval = 3;
 
     private void Awake() {
@@ -28,11 +29,24 @@ public class GameManager : MonoBehaviour
     }
 
     private void Update() {
-        
+        OnDeathEvent();
+        if (player != null)
+        {
+            uIManager.UpdateSliders(player);
+        }
     }
 
     public void SpawnEnemy() {
         float height = Random.Range(-4, 4);
         Instantiate(enemyPreFab, Camera.main.ViewportToWorldPoint(new Vector3(1, 0.5f, 0)) + new Vector3(0, height, 0), Quaternion.identity);
+    }
+
+    void OnDeathEvent()
+    {
+        if (player == null)
+        {
+            uIManager.GameOver();
+            gameOverScreen.SetActive(true);
+        }
     }
 }

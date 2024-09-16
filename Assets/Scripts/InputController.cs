@@ -29,7 +29,7 @@ public class InputController : MonoBehaviour
         {
             GetComponent<BulletGun>().Fire();
         }
-        if (Input.GetKey("p"))
+        if (Input.GetKey("r"))
         {
             SceneManager.LoadScene(0);
         }
