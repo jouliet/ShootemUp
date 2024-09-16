@@ -13,6 +13,7 @@ public abstract class Bullet : MonoBehaviour
         Damage = damage;
         Speed = speed;
         Position = position;
+        transform.position = position;
         BulletType = bulletType;
     }
 

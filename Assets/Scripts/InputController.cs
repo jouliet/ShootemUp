@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InputController : MonoBehaviour
 {
@@ -27,6 +28,10 @@ public class InputController : MonoBehaviour
         if (Input.GetKey("space"))
         {
             GetComponent<BulletGun>().Fire();
+        }
+        if (Input.GetKey("p"))
+        {
+            SceneManager.LoadScene(0);
         }
     }
 }
